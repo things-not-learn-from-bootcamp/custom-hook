@@ -1,20 +1,10 @@
 import * as React from 'react';
 
 const CheckboxField = ({source, label, setInfo, info}) => {
-    const handleInput = (e) => {
-        const input = e.target.checked;
-
-        setInfo((prev) => {
-            let returnObject = prev;
-            returnObject[source] = input;
-            return returnObject;
-        });
-    }
-
     return (
         <>
             {label}
-            <input onChange={handleInput}
+            <input onChange={e => setInfo(source)(e.target.checked)}
                    value={info.label}
                    type="checkbox"/>
         </>
